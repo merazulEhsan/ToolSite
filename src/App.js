@@ -1,17 +1,21 @@
-
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import Blogs from "./components/Blogs/Blogs"
+import About from "./components/About/About"
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-
-      <button class="btn btn-primary">Button</button>
-
-      <button class="btn btn-info">Info</button>
-<button class="btn btn-success">Success</button>
-<button class="btn btn-warning">Warning</button>
-<button class="btn btn-error">Error</button>
+    <div>
+      <Header></Header>
+      <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+      </Routes>
+      <Footer></Footer>
     </div>
   );
 }
