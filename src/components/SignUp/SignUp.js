@@ -1,15 +1,55 @@
 import React from 'react';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
+import img from '../../images/g-logo.jpg';
+import { toast } from 'react-toastify';
+
+
 
 const SignUp = () => {
-    return (
+  const [signInWithGoogle, gLoading, error] = useSignInWithGoogle(auth);
+  const [createUserWithEmailAndPassword,eUser, eLoading, eError] = useCreateUserWithEmailAndPassword(auth);
+  const [updateProfile, updating, updatEerror] = useUpdateProfile(auth);
+
+  if( error || updatEerror){
+    toast.warning( error.message || updatEerror.message);
+  }
+
+
+  if(gLoading || eLoading || updating){
+    return <Loading></Loading>
+  }
+
+  const handleGoogleSign = () =>{
+    signInWithGoogle();
+  }
+
+  const handleEmailAndPassword = async (event) => {
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    await createUserWithEmailAndPassword(email,password);
+    await updateProfile({ displayName: name });
+
+    
+  }
+  if(eUser){
+    toast.success('User Registration SuccessFull')
+  }
+
+  
+  return (
         <div className="antialiased bg-gray-200 text-gray-900 font-sans ">
       <div className="flex items-center h-screen w-full ">
         <div className="w-full bg-white rounded shadow-lg p-6 m-4 md:max-w-sm md:mx-auto border-t-4 border-green-600">
           <span className="block w-full text-xl uppercase font-bold mb-4">
             Signup
           </span>
-          <form className="mb-4">
+          <form onSubmit={handleEmailAndPassword} className="mb-4">
           <div className="mb-4 md:w-full">
               <label htmlFor="name" className="block text-xs mb-1">
                 Name
@@ -46,19 +86,24 @@ const SignUp = () => {
                 required
               />
             </div>
-            <div className="mb-5">
-              
-            </div>
-            <button className="bg-green-500 hover:bg-green-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded w-full">
+            
+            <p><small className='text-red-600 font-semibold'>{eError?.message}</small>
+            </p>
+            
+            <button type='submit' className="btn bg-green-500 hover:bg-green-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded w-full">
               Login
             </button>
 
+          </form>
+          <div className="divider">OR</div>
+              <button onClick={handleGoogleSign} className="bg-slate-200 flex items-center justify-center h-10 btn hover:bg-slate-400 text-black uppercase text-sm font-semibold rounded w-full">
+                 <img className=" mx-5 rounded-full" width={40} src={img} alt="" /> <p>SignIn With Google</p>
+              </button>
             <div className="text-center mt-3">
               <small>
                 Have an account? <strong className="hover:underline text-green-500 hover:text-green-700"><Link to='/login'>Log In</Link></strong>
               </small>
             </div>
-          </form>
         </div>
       </div>
     </div>

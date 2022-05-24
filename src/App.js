@@ -7,6 +7,8 @@ import Blogs from "./components/Blogs/Blogs"
 import About from "./components/About/About"
 import LogIn from "./components/LogIn/LogIn";
 import SignUp from "./components/SignUp/SignUp";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/SignUp" element={<SignUp></SignUp>}></Route>
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
