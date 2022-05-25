@@ -1,40 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init'
-import img from '../../images/g-logo.jpg'
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import img from "../../images/g-logo.jpg";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 
-
 const LogIn = () => {
   const [signInWithGoogle, gUser, gloading, gError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword,user,loading, error] = useSignInWithEmailAndPassword(auth);
-  if(error){
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  if (error) {
     toast.warning(error.message);
   }
 
-
-  if(gloading || loading ){
-    return <Loading></Loading>
+  if (gloading || loading) {
+    return <Loading></Loading>;
   }
 
-  const handleGoogleSign = () =>{
+  const handleGoogleSign = () => {
     signInWithGoogle();
-  }
+  };
 
-  const handleSignIn =(e)=>{
+  const handleSignIn = async (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    signInWithEmailAndPassword(email,password);
+    await signInWithEmailAndPassword(email, password);
+  };
+
+  if (user) {
+    console.log(user);
+    toast("Login Successful");
   }
 
-  if(user){
-    toast('Login Successful');
-  }
-  
   return (
     <div className="antialiased bg-gray-200 text-gray-900 font-sans ">
       <div className="flex items-center h-screen w-full ">
@@ -75,25 +78,28 @@ const LogIn = () => {
                 Forgot password?
               </a>
             </div>
-           
-              <button className="bg-purple-500 h-10 hover:bg-purple-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded w-full">
-                Login
-              </button>
-            
 
+            <button className="bg-purple-500 h-10 hover:bg-purple-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded w-full">
+              Login
+            </button>
           </form>
+
           <div className="divider">OR</div>
-              <button onClick={handleGoogleSign} className="bg-slate-200 flex items-center justify-center h-10 hover:bg-slate-400 text-black uppercase text-sm font-semibold rounded w-full">
-                 <img className=" mx-5 rounded-full" width={40} src={img} alt="" /> <p>SignIn With Google</p>
-              </button>
-            <div className="text-center mt-3">
-              <small>
-                Don't have an account?
-                <strong className="hover:underline text-green-500 hover:text-green-700">
-                  <Link to="/SignUp"> Sign Up</Link>
-                </strong>
-              </small>
-            </div>
+          <button
+            onClick={handleGoogleSign}
+            className="bg-slate-200 flex items-center justify-center h-10 hover:bg-slate-400 text-black uppercase text-sm font-semibold rounded w-full"
+          >
+            <img className=" mx-5 rounded-md" width={35} src={img} alt="" />{" "}
+            <p>SignIn With Google</p>
+          </button>
+          <div className="text-center mt-3">
+            <small>
+              Don't have an account?
+              <strong className="hover:underline text-green-500 hover:text-green-700">
+                <Link to="/SignUp"> Sign Up</Link>
+              </strong>
+            </small>
+          </div>
         </div>
       </div>
     </div>

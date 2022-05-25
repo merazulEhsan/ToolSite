@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Cordless Hammer Drill Driver",
+        "description": "WORKSITE Power Hammer Screwdriver Drills Machine Drilling Tools 20V Lithium Battery Screw Driver",
+        "price": 3500,
+        "img": "https://ibb.co/HCNJdkZ",
+        "min-order": 2,
+        "quantity": 50
+    },
+    {
+        "name": "Cord Electric Rotary Hammer",
+        "description": " Industrial Quality 32mm Rotary Hammer Drill Machine 220V Power Hammer Tools Large 1500W",
+        "price": 7000,
+        "img": "https://ibb.co/89pk4SB",
+        "min-order": 1,
+        "quantity": 20 
+    },
+    {
+        "name": "Corded Angle Grinder 115mm",
+        "description": " Electric Angle Grinders Power Tools Heavy Duty Hand Metal Concrete Cutter Wet Portable 9inch",
+        "price": 2770,
+        "img": "https://ibb.co/TTY4HTR",
+        "min-order": 2,
+        "quantity": 1900
+    },
+    {
+        "name": "Sledge Hammer",
+        "description": " High Quality Slide Sledge Hammer Hand Tools Safety Wooden Hammer 4Lb WORKSITE High Quality Slide Sledge Hammer Hand Tools Safety Wooden Hammer 4Lb Sledge Hammer",
+        "price": 990,
+        "img": "https://ibb.co/NT3x18Q",
+        "min-order": 2 ,
+        "quantity": 30 
+    },
+    {
+        "name": "Mini Screwdriver Set",
+        "description": "7Pcs Screwdriver Set Precision Screwdriver Set Hand Tools Repair Mini Screwdriver Set",
+        "price": 570,
+        "img": "https://ibb.co/q7YrVkf",
+        "min-order": 5,
+        "quantity": 50
+    },
+    {
+        "name": "Gasoline Generator",
+        "description": "3000RPM Portable Generator Gasoline 1000W Gasoline Generator",
+        "price": 1700,
+        "img": "https://ibb.co/5FVG0Sq",
+        "min-order": 1,
+        "quantity": 20
+    }
+]

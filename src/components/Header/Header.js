@@ -2,6 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Header = () => {
@@ -18,7 +19,8 @@ const Header = () => {
         <Link to="/about">About</Link>
       </li>
       <li>
-        {user ? <button onClick={()=>signOut(auth)} className="font-semibold">Log Out</button> : <Link to="/login">Log In</Link>}
+        {user ? <button onClick={()=>{signOut(auth)
+        toast('Log Out Successfull')}} className="font-semibold">Log Out</button> : <Link to="/login">Log In</Link>}
       </li>
     </>
   );
@@ -64,7 +66,7 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0 font-semibold">{menu}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Get started</a>
+          <a className="btn lg:hidden">Get started</a>
         </div>
       </div>
     </div>
