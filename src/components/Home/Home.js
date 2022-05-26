@@ -9,11 +9,15 @@ const Home = () => {
     return (
         <div>
             <Carousel></Carousel>
-            <div className=" mt-20 card grid gap-10  md:grid-cols-2 lg:grid-cols-3 bg-base-100 p-10">
+            <section className='mt-14'>
+                <h1 className='text-center text-5xl font-extrabold font-serif'>Our Products</h1>
+            <div className=" mt-10 card grid gap-14  md:grid-cols-2 lg:grid-cols-3 bg-base-100 p-10">
+
             {
                 products.map(product => <Products key={product._id} product = {product}></Products>)
             }
             </div>
+            </section>
         </div>
     );
 };
