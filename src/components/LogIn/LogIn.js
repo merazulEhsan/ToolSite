@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -13,6 +13,10 @@ const LogIn = () => {
   const [signInWithGoogle, gUser, gloading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
   if (error) {
     toast.warning(error.message);
   }
@@ -33,8 +37,8 @@ const LogIn = () => {
     await signInWithEmailAndPassword(email, password);
   };
 
-  if (user) {
-    console.log(user);
+  if (user || gUser) {
+    navigate(from, { replace: true });
     toast("Login Successful");
   }
 

@@ -16,14 +16,29 @@ const Header = () => {
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-      <li>
         <Link to="/about">About</Link>
       </li>
+
+      {user && (
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      )}
+
       <li>
-        {user ? <button onClick={()=>{signOut(auth)
-        toast('Log Out Successfull')}} className="font-semibold">Log Out</button> : <Link to="/login">Log In</Link>}
+        {user ? (
+          <button
+            onClick={() => {
+              signOut(auth);
+              toast("Log Out Successfull");
+            }}
+            className="font-semibold"
+          >
+            Log Out
+          </button>
+        ) : (
+          <Link to="/login">Log In</Link>
+        )}
       </li>
     </>
   );
@@ -69,8 +84,9 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0 font-semibold">{menu}</ul>
         </div>
         <div className="navbar-end">
-          <h1 className="font-semibold text-orange-600 btn btn-ghost invisible lg:visible">{user ? user.displayName: ''}</h1>
-          
+          <h1 className="font-semibold text-orange-600 btn btn-ghost invisible lg:visible">
+            {user ? user.displayName : ""}
+          </h1>
         </div>
       </div>
     </div>

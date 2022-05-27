@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -86,8 +86,10 @@ const Purchase = () => {
         .then((res) => res.json())
         .then((data) => {
           refetch();
+          setError('');
         });
     } else {
+      toast.error('order not placed')
       setError("make order between min_order and stock quantity");
     }
   };
@@ -209,7 +211,7 @@ const Purchase = () => {
               className="input input-bordered input-accent w-full max-w-md"
             />
             <label className="label">
-              <span className="label-text-alt">{error ? error : ""}</span>
+              <span className="label-text-alt text-red-600">{error ? error : ""}</span>
             </label>
 
             <button className="btn btn-success text-white">Place Order</button>
