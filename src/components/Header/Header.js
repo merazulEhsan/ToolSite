@@ -16,6 +16,9 @@ const Header = () => {
         <Link to="/blogs">Blogs</Link>
       </li>
       <li>
+        <Link to="/dashboard">Dashboard</Link>
+      </li>
+      <li>
         <Link to="/about">About</Link>
       </li>
       <li>
@@ -26,7 +29,7 @@ const Header = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-200">
+      <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -66,7 +69,8 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0 font-semibold">{menu}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn lg:hidden">Get started</a>
+          <h1 className="font-semibold text-orange-600 btn btn-ghost invisible lg:visible">{user ? user.displayName: ''}</h1>
+          
         </div>
       </div>
     </div>
