@@ -10,7 +10,7 @@ const Users = () => {
         isLoading,
         refetch,
       } = useQuery("users", () =>
-        fetch(`http://localhost:5000/user`).then((res) =>
+        fetch(`https://tranquil-dawn-10499.herokuapp.com/user`).then((res) =>
           res.json()
         )
       );

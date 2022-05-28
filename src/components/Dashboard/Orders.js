@@ -18,7 +18,7 @@ const Orders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/order?email=${user.email}`).then((res) =>
+    fetch(`https://tranquil-dawn-10499.herokuapp.com/order?email=${user.email}`).then((res) =>
       res.json()
     )
   );

@@ -6,7 +6,7 @@ const DeleteModel = ({orderDelete,setOrderDelete,refetch}) => {
 
     const handleDelete = () =>{
     
-        const url = `http://localhost:5000/order/${_id}`;
+        const url = `https://tranquil-dawn-10499.herokuapp.com/order/${_id}`;
         fetch(url,{
             method: 'DELETE',
             headers:{
