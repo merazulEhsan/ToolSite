@@ -13,6 +13,7 @@ const LogIn = () => {
   const [signInWithGoogle, gUser, gloading] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+    console.log(gUser);
   const navigate = useNavigate();
   const location = useLocation();
 

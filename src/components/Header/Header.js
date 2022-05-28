@@ -24,6 +24,9 @@ const Header = () => {
           <Link to="/dashboard">Dashboard</Link>
         </li>
       )}
+      <li>
+        <Link to="/portfolio">Portfolio</Link>
+      </li>
 
       <li>
         {user ? (
