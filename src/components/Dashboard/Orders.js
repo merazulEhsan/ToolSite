@@ -4,7 +4,7 @@ import auth from "../../firebase.init";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Loading from "../../components/Loading/Loading";
-import { toast } from "react-toastify";
+
 import DeleteModel from "./DeleteModel";
 import { useQuery } from "react-query";
 
@@ -61,7 +61,7 @@ const Orders = () => {
                 <td>{order.orderQuantity}</td>
                 <td>{order.unit_price}</td>
                 <td>{order.price}</td>
-                <td><button className="btn btn-xs btn-info text-white">Paid</button></td>
+                <td><button className="btn btn-xs btn-success text-white">Paid</button></td>
                 <td>
                   <label
                     htmlFor="order-delete"

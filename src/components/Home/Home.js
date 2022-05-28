@@ -1,5 +1,6 @@
 import React from 'react';
 import useProduct from '../../hooks/useProduct';
+import BusinessSummery from './BusinessSummery';
 import Carousel from './Carousel';
 import Products from './Products';
 
@@ -17,6 +18,7 @@ const Home = () => {
             }
             </div>
             </section>
+            <BusinessSummery></BusinessSummery>
         </div>
     );
 };

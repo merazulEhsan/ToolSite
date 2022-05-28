@@ -15,8 +15,8 @@ const Dashboard = () => {
         />
         <div className="drawer-content m-8">
           {/* <!-- Page content here --> */}
-          <h2 className="text-2xl mb-5 text-orange-600">Welcome!! {user.displayName}</h2>
-          <Outlet></Outlet>
+          <h2 className="text-2xl font-semibold mb-5 text-orange-600">Welcome!! {user.displayName}</h2>
+          <Outlet></Outlet> 
         </div>
         <div className="drawer-side shadow-xl">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
@@ -30,6 +30,9 @@ const Dashboard = () => {
             </li>
             <li>
               <Link to="/dashboard/myprofile">My Profile</Link>
+            </li>
+            <li>
+              <Link to="/dashboard/users">All Users</Link>
             </li>
           </ul>
         </div>
