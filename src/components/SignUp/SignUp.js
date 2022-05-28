@@ -4,17 +4,23 @@ import {
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import img from "../../images/g-logo.jpg";
 import { toast } from "react-toastify";
+import useToken from "../../hooks/useToken";
 
 const SignUp = () => {
   const [signInWithGoogle, gUser, gloading, gError] = useSignInWithGoogle(auth);
   const [createUserWithEmailAndPassword, eUser, eLoading, eError] =
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, updatEerror] = useUpdateProfile(auth);
+  
+  const navigate = useNavigate();
+  const [token] = useToken(eUser || gUser);
+
+  
 
   if (gError || updatEerror) {
     toast.error(gError?.message || updatEerror?.message);
@@ -27,7 +33,10 @@ const SignUp = () => {
   const handleGoogleSign = () => {
     signInWithGoogle();
   };
-
+  
+  if (eUser || gUser) {
+    navigate('/');
+  }
   const handleEmailAndPassword = async (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -37,9 +46,7 @@ const SignUp = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
   };
-  if (eUser) {
-    toast.success("User Registration SuccessFull");
-  }
+
 
   return (
     <div className="antialiased bg-gray-200 text-gray-900 font-sans ">

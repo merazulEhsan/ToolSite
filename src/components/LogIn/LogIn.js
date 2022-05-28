@@ -10,7 +10,7 @@ import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 
 const LogIn = () => {
-  const [signInWithGoogle, gUser, gloading, gError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gloading] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();

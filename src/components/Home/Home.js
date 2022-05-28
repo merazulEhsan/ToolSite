@@ -5,7 +5,6 @@ import Products from './Products';
 
 const Home = () => {
     const [products] = useProduct();
-    console.log(products);
     return (
         <div>
             <Carousel></Carousel>
