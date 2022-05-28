@@ -20,11 +20,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [token] = useToken(eUser || gUser);
 
-  
-
-  if (gError || updatEerror) {
-    toast.error(gError?.message || updatEerror?.message);
-  }
 
   if (gloading || eLoading || updating) {
     return <Loading></Loading>;
@@ -36,6 +31,7 @@ const SignUp = () => {
   
   if (eUser || gUser) {
     navigate('/');
+    window.location.reload();
   }
   const handleEmailAndPassword = async (event) => {
     event.preventDefault();

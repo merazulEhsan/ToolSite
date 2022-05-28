@@ -28,7 +28,7 @@ const Home = () => {
                 <h1 className='text-center text-3xl font-bold'>Customer Reviews</h1>
             <div className=" grid gap-10  md:grid-cols-2 lg:grid-cols-3 m-10">
                 {
-                    review.map(review => <Review key={review._id} review={review}></Review>).reverse().slice(0,6)
+                    review.map(review => <Review key={review._id} review={review}></Review>).reverse().slice(0,3)
                 }
                 </div>
             </section>
