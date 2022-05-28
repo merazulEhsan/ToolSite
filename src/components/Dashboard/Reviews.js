@@ -1,75 +1,101 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const Reviews = () => {
+  const [user] = useAuthState(auth);
+
+  const handleReview = (e) => {
+    e.preventDefault();
+    const review = {
+      name: e.target.name.value,
+      email: e.target.email.value,
+      message: e.target.message.value,
+    };
+    const url = `http://localhost:5000/review`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(review),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast("Review Add Successfully");
+        e.target.reset();
+      });
+  };
+
   return (
     <div className="flex justify-center">
-      <form class="w-full max-w-lg">
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <form onSubmit={handleReview} className="w-full max-w-lg">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-first-name"
             >
               Name
             </label>
             <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               id="grid-first-name"
               type="text"
+              value={user.displayName}
+              readOnly
+              name="name"
               placeholder="Name"
             />
-            <p class="text-red-500 text-xs italic">
+            <p className="text-red-500 text-xs italic">
               Please fill out this field.
             </p>
           </div>
-          
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-password"
             >
               E-mail
             </label>
             <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="email"
+              name="email"
+              value={user.email}
+              readOnly
               type="email"
             />
-            <p class="text-gray-600 text-xs italic">
-              Some tips - as long as needed
-            </p>
           </div>
         </div>
-        <div class="flex flex-wrap -mx-3 mb-6">
-          <div class="w-full px-3">
+        <div className="flex flex-wrap -mx-3 mb-6">
+          <div className="w-full px-3">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-password"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              htmlFor="grid-password"
             >
               Message
             </label>
             <textarea
-              class=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
+              className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
               id="message"
+              name="message"
             ></textarea>
-            <p class="text-gray-600 text-xs italic">
-              Re-size can be disabled by set by resize-none / resize-y /
-              resize-x / resize
-            </p>
           </div>
         </div>
-        <div class="md:flex md:items-center">
-          <div class="md:w-1/3">
+        <div className="md:flex md:items-center">
+          <div className="md:w-1/3">
             <button
-              class="shadow bg-teal-400 hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-              type="button"
+              className="shadow btn bg-teal-400 hover:bg-teal-600 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              type="submit"
             >
               Send
             </button>
           </div>
-          <div class="md:w-2/3"></div>
+          <div className="md:w-2/3"></div>
         </div>
       </form>
     </div>
