@@ -90,7 +90,7 @@ const Header = () => {
           <h1 className="font-semibold text-orange-600 btn btn-ghost invisible sm:visible">
             {user ? user.displayName : ""}
           </h1>
-          <label htmlFor="dashboard-drawer" tabIndex="1" className="btn btn-ghost lg:hidden">
+          <label tabIndex="1" htmlFor="dashboard-drawer"  className="btn btn-ghost drawer-button lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"

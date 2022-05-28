@@ -24,9 +24,9 @@ const Home = () => {
             </section>
             <BusinessSummery></BusinessSummery>
 
-            <section className=' bg-gray-300 shadow-lg rounded-lg m-10 p-5 mb-10 mt-10'>
-                <h1 className='text-center text-3xl font-bold'>Customer Reviews</h1>
-            <div className=" grid gap-10  md:grid-cols-2 lg:grid-cols-3 m-10">
+            <section className=' bg-gray-300 shadow-lg rounded-lg lg:m-10 lg:p-5 mb-10 mt-10'>
+                <h1 className='text-center text-3xl font-bold mb-3'>Customer Reviews</h1>
+            <div className=" grid gap-10  md:grid-cols-2 lg:grid-cols-3 lg:m-10">
                 {
                     review.map(review => <Review key={review._id} review={review}></Review>).reverse().slice(0,3)
                 }
