@@ -44,7 +44,7 @@ const DeleteModel = ({orderDelete,setOrderDelete,refetch}) => {
             >
               Cancel
             </label>
-            <button onClick={()=>handleDelete() } className="btn btn-error btn-sm">Delete</button>
+            <button onClick={()=>handleDelete()} className="btn btn-error btn-sm">Delete</button>
           </div>
         </div>
       </div>

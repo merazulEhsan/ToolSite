@@ -31,7 +31,7 @@ const Orders = () => {
   return (
     <div>
       <div className="overflow-x-auto w-full">
-        <table className="table w-full">
+        <table className="table table-zebra w-full">
           <thead>
             <tr>
               <th>P.Image</th>
@@ -46,7 +46,7 @@ const Orders = () => {
           </thead>
           <tbody>
             {orders.map((order,index) => (
-              <tr>
+              <tr key={order._id}>
                 <td>
                   <div className="flex items-center space-x-3">
                     <div className="avatar">

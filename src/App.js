@@ -18,6 +18,7 @@ import MyProfile from "./components/Dashboard/MyProfile";
 import Users from "./components/Dashboard/Users";
 import NotFound from "./components/NotFound/NotFound";
 import Portfolio from "./components/Portfolio/Portfolio";
+import Checkout from "./components/Pages/Checkout";
 
 function App() {
   return (
@@ -48,6 +49,14 @@ function App() {
           element={
             <RequireAuth>
               <Purchase></Purchase>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/checkout/:id"
+          element={
+            <RequireAuth>
+              <Checkout></Checkout>
             </RequireAuth>
           }
         ></Route>
