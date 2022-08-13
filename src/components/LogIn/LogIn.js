@@ -8,11 +8,14 @@ import auth from "../../firebase.init";
 import img from "../../images/g-logo.jpg";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
+import useToken from "../../hooks/useToken";
 
 const LogIn = () => {
   const [signInWithGoogle, gUser, gloading] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+    const [token] = useToken(gUser);
   
   const navigate = useNavigate();
   const location = useLocation();

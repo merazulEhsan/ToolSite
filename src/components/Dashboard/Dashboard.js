@@ -7,7 +7,7 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
   return (
     <div>
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile h-auto">
         <input
           id="dashboard-drawer"
           type="checkbox"
@@ -15,12 +15,10 @@ const Dashboard = () => {
         />
         <div className="drawer-content m-8">
           {/* <!-- Page content here --> */}
-          <h2 className="text-2xl font-bold mb-5 text-orange-600">
-            Welcome!! {user.displayName}
-          </h2>
+
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side shadow-xl">
+        <div className="drawer-side">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
             {/* <!-- Sidebar content here --> */}
@@ -67,6 +65,7 @@ const Dashboard = () => {
                 My Profile
               </Link>
             </li>
+            <hr />
             <li>
               <Link to="/dashboard/users">
                 <svg
@@ -78,6 +77,23 @@ const Dashboard = () => {
                   <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                 </svg>
                 All Users
+              </Link>
+            </li>
+            <li>
+              <Link to="/dashboard/addproducts">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V8z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Add Products
               </Link>
             </li>
           </ul>

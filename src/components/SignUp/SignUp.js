@@ -31,7 +31,7 @@ const SignUp = () => {
   
   if (eUser || gUser) {
     navigate('/');
-    window.location.reload();
+    // window.location.reload();
   }
   const handleEmailAndPassword = async (event) => {
     event.preventDefault();

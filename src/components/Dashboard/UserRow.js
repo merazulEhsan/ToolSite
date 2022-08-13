@@ -1,10 +1,11 @@
-import React from "react";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "react-toastify";
+import avatar from "../../images/avatar.png";
 
-const UserRow = ({ user, index, refetch }) => {
-  const { email } = user;
+
+const UserRow = ({ user, index, refetch, setUserDelete }) => {
+  const { email, photoURL } = user;
 
   const makeAdmin = () => {
     fetch(`http://localhost:5000/user/admin/${email}`, {
@@ -20,8 +21,15 @@ const UserRow = ({ user, index, refetch }) => {
   return (
     <tr>
       <td>{index + 1}</td>
-      <td>{user.email}</td>
-
+      <td>
+        <div className="avatar">
+          <div className="w-8 rounded-full">
+            <img src={user?.photoURL ? photoURL : avatar} alt="" />
+          </div>
+        </div>
+      </td>
+      <td>{user.name}</td>
+      <td>{email}</td>
       <td>
         {user.roll !== "admin" ? (
           <button
@@ -51,8 +59,8 @@ const UserRow = ({ user, index, refetch }) => {
 
       <td>
         <label
-          htmlFor="order-delete"
-          // onClick={() => setOrderDelete(order)}
+          htmlFor="user-delete"
+          onClick={() => setUserDelete(user)}
           tabIndex="0"
         >
           <FontAwesomeIcon

@@ -4,11 +4,11 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
-import avatar from '../../images/avatar.png'
+import avatar from "../../images/avatar.png";
 
 const Header = () => {
   const [user] = useAuthState(auth);
-  
+
   const menu = (
     <>
       <li>
@@ -91,10 +91,7 @@ const Header = () => {
         <div className="navbar-end">
           <div className="avatar invisible sm:visible">
             <div className="w-8 rounded-full">
-              <img
-                src={user?.phoneNumber ? user?.photoURL : avatar}
-                alt=""
-              />
+              <img src={user?.photoURL ? user?.photoURL : avatar} alt="" />
             </div>
           </div>
           <h1 className="font-semibold text-orange-600 btn btn-ghost invisible sm:visible">

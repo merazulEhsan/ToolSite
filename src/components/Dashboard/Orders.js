@@ -29,14 +29,17 @@ const Orders = () => {
   }
 
   return (
-    <div>
+    <div className="lg:card lg:card-body shadow-lg">
+      <div>
+        <h1 className="text-2xl font-bold mb-3">Order History</h1><hr className="mb-5"/>
+      </div>
       <div className="overflow-x-auto w-full">
         <table className="table table-zebra w-full">
-          <thead>
+          <thead className=" ">
             <tr>
               <th>P.Image</th>
               <th>P.name</th>
-              <th>Email</th>
+              {/* <th>Email</th> */}
               <th>Quantity</th>
               <th>Unit Price</th>
               <th>Total</th>
@@ -45,7 +48,7 @@ const Orders = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((order,index) => (
+            {orders.map((order) => (
               <tr key={order._id}>
                 <td>
                   <div className="flex items-center space-x-3">
@@ -57,7 +60,7 @@ const Orders = () => {
                   </div>
                 </td>
                 <td>{order.product_name}</td>
-                <td>{order.email}</td>
+                {/* <td>{order.email}</td> */}
                 <td>{order.orderQuantity}</td>
                 <td>{order.unit_price}</td>
                 <td>{order.price}</td>
