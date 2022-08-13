@@ -1,17 +1,37 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const AddProducts = () => {
 
 
 const handleAddProduct = (e) =>{
     e.preventDefault();
-    const pname = e.target.pname.value;
-    const description = e.target.description.value;
-    const price = e.target.price.value;
-    const quantity = e.target.quantity.value;
-    const min_order = e.target.min_order.value;
-    const image = e.target.image.value;
-}
+
+    const addProduct ={
+
+         name : e.target.pname.value,
+         description : e.target.description.value,
+         price : e.target.price.value,
+         quantity : e.target.quantity.value,
+         min_order : e.target.min_order.value,
+         img : e.target.image.value,
+    };
+
+    const url = `http://localhost:5000/addproduct`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addProduct),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast("Add Product Successfully");
+        e.target.reset();
+      });
+  };
+
 
   return (
     <div className="card card-bordered shadow-lg p-8">

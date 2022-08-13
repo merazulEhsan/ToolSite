@@ -29,9 +29,9 @@ const SignUp = () => {
     signInWithGoogle();
   };
   
-  if (eUser || gUser) {
+  if (token) {
     navigate('/');
-    // window.location.reload();
+    window.location.reload();
   }
   const handleEmailAndPassword = async (event) => {
     event.preventDefault();

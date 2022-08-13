@@ -7,14 +7,14 @@ const Footer = () => {
     <footer className="footer p-10 bg-base-300 text-base-content">
       <div>
         <span className="footer-title">Services</span>
-        <Link to='/' className="link link-hover">Home</Link>
-        <Link to="/blogs" className="link link-hover">Blogs</Link>
+        <a href="/" className="link link-hover">Home</a>
+        <a href="/blogs" className="link link-hover">Blogs</a>
         {/* <a className="link link-hover">Design</a>
         <a className="link link-hover">Advertisement</a> */}
       </div>
       <div>
         <span className="footer-title">Company</span>
-        <Link to='/about' className="link link-hover">About us</Link>
+        <a href='/about' className="link link-hover">About us</a>
         {/* <a className="link link-hover">Contact</a> */}
         
       </div>

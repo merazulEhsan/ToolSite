@@ -29,7 +29,13 @@ const Reviews = () => {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="mx-auto card card-bordered shadow-lg p-5">
+    
+    
+    <div>
+        <h1 className="text-2xl font-bold ">Review</h1>
+        <hr className="mt-3 mb-3" />
+      </div>
       <form onSubmit={handleReview} className="w-full max-w-lg">
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full px-3">
@@ -48,9 +54,7 @@ const Reviews = () => {
               name="name"
               placeholder="Name"
             />
-            <p className="text-red-500 text-xs italic">
-              Please fill out this field.
-            </p>
+            
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -83,7 +87,11 @@ const Reviews = () => {
               className=" no-resize appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none"
               id="message"
               name="message"
+              required
             ></textarea>
+            <p className="text-red-500 text-xs italic">
+              Please fill out this field.
+            </p>
           </div>
         </div>
         <div className="md:flex md:items-center">

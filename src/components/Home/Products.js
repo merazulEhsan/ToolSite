@@ -25,7 +25,10 @@ const Products = ({ product }) => {
         <p className="font-semibold">Available Quantity: {quantity} Pcs</p>
         <p className="font-semibold">Minimum Order: {min_order} Pcs</p>
         <div className="card-actions justify-end">
-          <button onClick={() => handleBuyNow(_id)} className="btn btn-primary">
+          <button
+            onClick={() => handleBuyNow(_id)}
+            className="btn btn-primary btn-sm"
+          >
             Buy Now{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"

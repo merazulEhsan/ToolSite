@@ -20,6 +20,7 @@ import NotFound from "./components/NotFound/NotFound";
 import Portfolio from "./components/Portfolio/Portfolio";
 import Checkout from "./components/Pages/Checkout";
 import AddProducts from "./components/Dashboard/AddProducts";
+import AllProducts from "./components/Pages/AllProducts";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
+        <Route path="/products" element={<AllProducts></AllProducts>}></Route>
         <Route
           path="/dashboard"
           element={

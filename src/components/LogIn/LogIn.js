@@ -43,7 +43,7 @@ const LogIn = () => {
 
   if (user || gUser) {
     navigate(from, { replace: true });
-    toast("Login Successful");
+    
   }
 
   return (
