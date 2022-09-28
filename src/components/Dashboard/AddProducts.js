@@ -17,7 +17,7 @@ const handleAddProduct = (e) =>{
          img : e.target.image.value,
     };
 
-    const url = `http://localhost:5000/addproduct`;
+    const url = `https://tranquil-dawn-10499.herokuapp.com/addproduct`;
     fetch(url, {
       method: "POST",
       headers: {
