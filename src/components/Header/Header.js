@@ -9,6 +9,7 @@ import avatar from "../../images/avatar.png";
 const Header = () => {
   const [user] = useAuthState(auth);
 
+
   const menu = (
     <>
       <li>

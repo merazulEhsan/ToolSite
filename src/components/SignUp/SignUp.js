@@ -21,7 +21,7 @@ const SignUp = () => {
   const [token] = useToken(eUser || gUser);
 
 
-  if (gloading || eLoading || updating) {
+  if (gloading || eLoading) {
     return <Loading></Loading>;
   }
 
@@ -31,7 +31,7 @@ const SignUp = () => {
   
   if (token) {
     navigate('/');
-    window.location.reload();
+    // window.location.reload();
   }
   const handleEmailAndPassword = async (event) => {
     event.preventDefault();
@@ -51,7 +51,7 @@ const SignUp = () => {
           <span className="block w-full text-xl uppercase font-bold mb-4">
             Signup
           </span>
-          <form onSubmit={handleEmailAndPassword} className="mb-4">
+          <form onSubmit={handleEmailAndPassword} autoComplete='off' className="mb-4">
             <div className="mb-4 md:w-full">
               <label htmlFor="name" className="block text-xs mb-1">
                 Name
@@ -74,6 +74,7 @@ const SignUp = () => {
                 name="email"
                 placeholder="Email"
                 required
+              
               />
             </div>
             <div className="mb-3 md:w-full">
@@ -114,7 +115,7 @@ const SignUp = () => {
             <small>
               Have an account?{" "}
               <strong className="hover:underline text-green-500 hover:text-green-700">
-                <Link to="/login">Log In</Link>
+                <Link to="/login">Sign Up</Link>
               </strong>
             </small>
           </div>

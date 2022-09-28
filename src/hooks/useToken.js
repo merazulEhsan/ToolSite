@@ -8,10 +8,11 @@ const useToken = (user) => {
   const photoURL = user?.user?.photoURL;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const email = user?.user?.email;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const currentUser = { email: email, name: name, photoURL:photoURL};
   useEffect(() => {
     if (email) {
-      fetch(`https://tranquil-dawn-10499.herokuapp.com/user/${email}`, {
+      fetch(`http://localhost:5000/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -21,7 +22,7 @@ const useToken = (user) => {
         .then((res) => res.json())
         .then((data) => console.log(data));
     }
-  }, [user,currentUser]);
+  }, [user, currentUser, email]);
   return [token];
 };
 export default useToken;

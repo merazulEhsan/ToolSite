@@ -34,7 +34,7 @@ const MyProfile = () => {
         <div className="">
           <img
             className="w-32 rounded-full ml-10"
-            src={user ? user?.photoURL : avatar}
+            src={user.photoURL ? user?.photoURL : avatar}
             alt=""
           />
           <label
