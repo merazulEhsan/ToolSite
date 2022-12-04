@@ -28,7 +28,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        {/* <Route path="/blogs" element={<Blogs></Blogs>}></Route> */}
         <Route path="/about" element={<About></About>}></Route>
         <Route path="/portfolio" element={<Portfolio></Portfolio>}></Route>
         <Route path="/products" element={<AllProducts></AllProducts>}></Route>
@@ -44,9 +44,12 @@ function App() {
           <Route path="reviews" element={<Reviews></Reviews>}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="users" element={<Users></Users>}></Route>
-          <Route path="addproducts" element={<AddProducts></AddProducts>}></Route>
+          <Route
+            path="addproducts"
+            element={<AddProducts></AddProducts>}
+          ></Route>
         </Route>
-        
+
         <Route path="/login" element={<LogIn></LogIn>}></Route>
         <Route path="/SignUp" element={<SignUp></SignUp>}></Route>
         <Route

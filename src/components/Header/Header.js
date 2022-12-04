@@ -9,15 +9,14 @@ import avatar from "../../images/avatar.png";
 const Header = () => {
   const [user] = useAuthState(auth);
 
-
   const menu = (
     <>
       <li>
         <Link to="/">Home</Link>
       </li>
-      <li>
+      {/* <li>
         <Link to="/blogs">Blogs</Link>
-      </li>
+      </li> */}
       <li>
         <Link to="/about">About</Link>
       </li>
