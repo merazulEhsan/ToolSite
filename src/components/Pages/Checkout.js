@@ -16,8 +16,8 @@ const Checkout = () => {
     isLoading,
     refetch,
   } = useQuery("singleProduct", () =>
-    fetch(`https://tranquil-dawn-10499.herokuapp.com/products/${id}`).then(
-      (res) => res.json()
+    fetch(`https://toolsite.up.railway.app/products/${id}`).then((res) =>
+      res.json()
     )
   );
 
@@ -44,7 +44,7 @@ const Checkout = () => {
       orderQuantity >= singleProduct.min_order &&
       orderQuantity <= singleProduct.quantity
     ) {
-      const url = `https://tranquil-dawn-10499.herokuapp.com/order`;
+      const url = `https://toolsite.up.railway.app/order`;
       fetch(url, {
         method: "POST",
         headers: {
@@ -74,7 +74,7 @@ const Checkout = () => {
       //update products quantity after make a order
       const quantity =
         parseInt(singleProduct.quantity) - parseInt(orderQuantity);
-      const url2 = `https://tranquil-dawn-10499.herokuapp.com/products/${id}`;
+      const url2 = `https://toolsite.up.railway.app/products/${id}`;
       fetch(url2, {
         method: "PUT",
         headers: {
@@ -204,7 +204,9 @@ const Checkout = () => {
                 </span>
               </label>
 
-              <button className="btn btn-success mt-4 w-full text-white">Check Out</button>
+              <button className="btn btn-success mt-4 w-full text-white">
+                Check Out
+              </button>
             </div>
           </div>
         </form>

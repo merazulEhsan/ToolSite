@@ -12,8 +12,8 @@ const Purchase = () => {
     isLoading,
     refetch,
   } = useQuery("singleProduct", () =>
-    fetch(`https://tranquil-dawn-10499.herokuapp.com/products/${id}`).then(
-      (res) => res.json()
+    fetch(`https://toolsite.up.railway.app/products/${id}`).then((res) =>
+      res.json()
     )
   );
 
@@ -21,9 +21,9 @@ const Purchase = () => {
     return <Loading></Loading>;
   }
 
-  const placeOrder = (id) =>{
-    navigate(`/checkout/${id}`)
-  }
+  const placeOrder = (id) => {
+    navigate(`/checkout/${id}`);
+  };
 
   // const handleBookOrder = (e) => {
   //   e.preventDefault();
@@ -44,7 +44,7 @@ const Purchase = () => {
   //     orderQuantity >= singleProduct.min_order &&
   //     orderQuantity <= singleProduct.quantity
   //   ) {
-  //     const url = `https://tranquil-dawn-10499.herokuapp.com/order`;
+  //     const url = `https://toolsite.up.railway.app/order`;
   //     fetch(url, {
   //       method: "POST",
   //       headers: {
@@ -74,7 +74,7 @@ const Purchase = () => {
   //     //update products quantity after make a order
   //     const quantity =
   //       parseInt(singleProduct.quantity) - parseInt(orderQuantity);
-  //     const url2 = `https://tranquil-dawn-10499.herokuapp.com/products/${id}`;
+  //     const url2 = `https://toolsite.up.railway.app/products/${id}`;
   //     fetch(url2, {
   //       method: "PUT",
   //       headers: {
@@ -119,7 +119,12 @@ const Purchase = () => {
             <p className="py-2">Price: Tk.{singleProduct.price}</p>
             <p className="py-2">Quantity: {singleProduct.quantity} pcs</p>
             <p className="py-2">Min-Order: {singleProduct.min_order} pcs</p>
-            <button className="btn btn-secondary" onClick={()=>placeOrder(id)}>Place Order</button>
+            <button
+              className="btn btn-secondary"
+              onClick={() => placeOrder(id)}
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>

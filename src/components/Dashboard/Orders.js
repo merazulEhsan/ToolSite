@@ -18,11 +18,10 @@ const Orders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`https://tranquil-dawn-10499.herokuapp.com/order?email=${user.email}`).then((res) =>
-      res.json()
+    fetch(`https://toolsite.up.railway.app/order?email=${user.email}`).then(
+      (res) => res.json()
     )
   );
-
 
   if (isLoading) {
     return <Loading></Loading>;
@@ -31,7 +30,8 @@ const Orders = () => {
   return (
     <div className="lg:card lg:card-body shadow-lg">
       <div>
-        <h1 className="text-2xl font-bold mb-3">Order History</h1><hr className="mb-5"/>
+        <h1 className="text-2xl font-bold mb-3">Order History</h1>
+        <hr className="mb-5" />
       </div>
       <div className="overflow-x-auto w-full">
         <table className="table table-zebra w-full">
@@ -64,7 +64,11 @@ const Orders = () => {
                 <td>{order.orderQuantity}</td>
                 <td>{order.unit_price}</td>
                 <td>{order.price}</td>
-                <td><button className="btn btn-xs btn-success text-white">Paid</button></td>
+                <td>
+                  <button className="btn btn-xs btn-success text-white">
+                    Paid
+                  </button>
+                </td>
                 <td>
                   <label
                     htmlFor="order-delete"

@@ -8,7 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import img from "../../images/g-logo.jpg";
-import { toast } from "react-toastify";
 import useToken from "../../hooks/useToken";
 
 const SignUp = () => {

@@ -2,22 +2,19 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const AddProducts = () => {
-
-
-const handleAddProduct = (e) =>{
+  const handleAddProduct = (e) => {
     e.preventDefault();
 
-    const addProduct ={
-
-         name : e.target.pname.value,
-         description : e.target.description.value,
-         price : e.target.price.value,
-         quantity : e.target.quantity.value,
-         min_order : e.target.min_order.value,
-         img : e.target.image.value,
+    const addProduct = {
+      name: e.target.pname.value,
+      description: e.target.description.value,
+      price: e.target.price.value,
+      quantity: e.target.quantity.value,
+      min_order: e.target.min_order.value,
+      img: e.target.image.value,
     };
 
-    const url = `https://tranquil-dawn-10499.herokuapp.com/addproduct`;
+    const url = `https://toolsite.up.railway.app/addproduct`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -32,7 +29,6 @@ const handleAddProduct = (e) =>{
       });
   };
 
-
   return (
     <div className="card card-bordered shadow-lg p-8">
       <div>
@@ -41,7 +37,7 @@ const handleAddProduct = (e) =>{
       </div>
       <div>
         <form
-            onSubmit={handleAddProduct}
+          onSubmit={handleAddProduct}
           className=" overflow-visible mx-auto items-center text-center mt-2"
         >
           <div className="form-control w-full max-w-md">
@@ -56,14 +52,11 @@ const handleAddProduct = (e) =>{
             />
 
             <label className="label">
-              <span className="label-text">
-                Product Description
-              </span>
+              <span className="label-text">Product Description</span>
             </label>
             <textarea
               name="description"
               type=" text-area"
-
               placeholder="Description"
               className="textarea textarea-info w-full"
             />

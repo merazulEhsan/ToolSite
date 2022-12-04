@@ -13,7 +13,7 @@ const Reviews = () => {
       email: e.target.email.value,
       message: e.target.message.value,
     };
-    const url = `https://tranquil-dawn-10499.herokuapp.com/review`;
+    const url = `https://toolsite.up.railway.app/review`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -30,9 +30,7 @@ const Reviews = () => {
 
   return (
     <div className="mx-auto card card-bordered shadow-lg p-5">
-    
-    
-    <div>
+      <div>
         <h1 className="text-2xl font-bold ">Review</h1>
         <hr className="mt-3 mb-3" />
       </div>
@@ -54,7 +52,6 @@ const Reviews = () => {
               name="name"
               placeholder="Name"
             />
-            
           </div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -103,7 +100,6 @@ const Reviews = () => {
               Send
             </button>
           </div>
-          
         </div>
       </form>
     </div>

@@ -3,12 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { toast } from "react-toastify";
 import avatar from "../../images/avatar.png";
 
-
 const UserRow = ({ user, index, refetch, setUserDelete }) => {
   const { email, photoURL } = user;
 
   const makeAdmin = () => {
-    fetch(`https://tranquil-dawn-10499.herokuapp.com/user/admin/${email}`, {
+    fetch(`https://toolsite.up.railway.app/user/admin/${email}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
     })

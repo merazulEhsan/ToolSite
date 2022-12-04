@@ -1,4 +1,10 @@
 import React from "react";
+import SwiperCore, { EffectCoverflow, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "../../../node_modules/swiper/swiper-bundle.min.css";
+import "../../../node_modules/swiper/swiper.min.css";
+
+
 import { Link } from "react-router-dom";
 import useProduct from "../../hooks/useProduct";
 import useReviews from "../../hooks/useReviews";
@@ -7,6 +13,9 @@ import Carousel from "./Carousel";
 import Contact from "./Contact";
 import Products from "./Products";
 import Review from "./Review";
+import './review.css'
+
+SwiperCore.use([EffectCoverflow, Pagination]);
 
 const Home = () => {
   const [products] = useProduct();
@@ -51,16 +60,44 @@ const Home = () => {
       <BusinessSummery></BusinessSummery>
 
       
-      <section className=" bg-gray-300 shadow-lg rounded-lg lg:m-10 lg:p-5 mb-10 mt-10">
-        <h1 className="text-center text-3xl font-bold mb-3" >
+      <section className=" shadow-lg rounded-lg lg:m-10 lg:p-5 mb-10 mt-10">
+        <h1 className="text-center text-3xl font-bold mb-5" >
           Customer Reviews
         </h1>
-        <div className=" grid gap-10  md:grid-cols-2 lg:grid-cols-3 lg:m-10">
+        {/* <div className=" grid gap-10  md:grid-cols-2 lg:grid-cols-3 lg:m-10">
           {review
             .map((review) => <Review key={review._id} review={review}></Review>)
             .reverse()
             .slice(0, 3)}
-        </div>
+        </div> */}
+
+<div className=" main-swiper ">
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        pagination={true}
+        className="mySwiper "
+      >
+        
+        {review.map((review) => {
+          return (
+            <SwiperSlide key={review._id}>
+              <Review key={review._id} review={review}></Review>
+           
+            </SwiperSlide>
+          );
+        }).reverse().slice(0,6)}
+      </Swiper>
+    </div>
       </section>
 
       <Contact></Contact>

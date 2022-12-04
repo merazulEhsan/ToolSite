@@ -1,26 +1,25 @@
 import React from "react";
 import { toast } from "react-toastify";
 
-const DeleteModel = ({orderDelete,setOrderDelete,refetch}) => {
-    const {product_name, orderQuantity,_id} = orderDelete;
+const DeleteModel = ({ orderDelete, setOrderDelete, refetch }) => {
+  const { product_name, orderQuantity, _id } = orderDelete;
 
-    const handleDelete = () =>{
-    
-        const url = `https://tranquil-dawn-10499.herokuapp.com/order/${_id}`;
-        fetch(url,{
-            method: 'DELETE',
-            headers:{
-                'content-type': 'application/json'
-            }
-        })
-          .then((res) => res.json())
-          .then((data) => {
-              toast('Item Successfully Deleted')
-              refetch()
-              setOrderDelete(null)
-          });
-      }
-    
+  const handleDelete = () => {
+    const url = `https://toolsite.up.railway.app/order/${_id}`;
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast("Item Successfully Deleted");
+        refetch();
+        setOrderDelete(null);
+      });
+  };
+
   return (
     <div>
       {/* <!-- Put this part before </body> tag --> */}
@@ -44,7 +43,12 @@ const DeleteModel = ({orderDelete,setOrderDelete,refetch}) => {
             >
               Cancel
             </label>
-            <button onClick={()=>handleDelete()} className="btn btn-error btn-sm">Delete</button>
+            <button
+              onClick={() => handleDelete()}
+              className="btn btn-error btn-sm"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
