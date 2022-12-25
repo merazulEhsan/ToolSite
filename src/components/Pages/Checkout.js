@@ -16,7 +16,7 @@ const Checkout = () => {
     isLoading,
     refetch,
   } = useQuery("singleProduct", () =>
-    fetch(`https://toolsite.up.railway.app/products/${id}`).then((res) =>
+    fetch(`https://toolsite-f16i.onrender.com/products/${id}`).then((res) =>
       res.json()
     )
   );
@@ -44,7 +44,7 @@ const Checkout = () => {
       orderQuantity >= singleProduct.min_order &&
       orderQuantity <= singleProduct.quantity
     ) {
-      const url = `https://toolsite.up.railway.app/order`;
+      const url = `https://toolsite-f16i.onrender.com/order`;
       fetch(url, {
         method: "POST",
         headers: {
@@ -74,7 +74,7 @@ const Checkout = () => {
       //update products quantity after make a order
       const quantity =
         parseInt(singleProduct.quantity) - parseInt(orderQuantity);
-      const url2 = `https://toolsite.up.railway.app/products/${id}`;
+      const url2 = `https://toolsite-f16i.onrender.com/products/${id}`;
       fetch(url2, {
         method: "PUT",
         headers: {
