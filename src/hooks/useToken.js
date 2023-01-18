@@ -11,7 +11,7 @@ const useToken = (user) => {
   const currentUser = { email: email, name: name, photoURL: photoURL };
   useEffect(() => {
     if (email) {
-      fetch(`https://toolsite-f16i.onrender.com/user/${email}`, {
+      fetch(`https://toolsite.up.railway.app/user/${email}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

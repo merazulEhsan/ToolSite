@@ -14,7 +14,7 @@ const AddProducts = () => {
       img: e.target.image.value,
     };
 
-    const url = `https://toolsite-f16i.onrender.com/addproduct`;
+    const url = `https://toolsite.up.railway.app/addproduct`;
     fetch(url, {
       method: "POST",
       headers: {

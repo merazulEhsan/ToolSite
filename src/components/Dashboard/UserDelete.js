@@ -5,7 +5,7 @@ const UserDelete = ({ userDelete, setUserDelete, refetch }) => {
   const { _id, email } = userDelete;
 
   const handleDelete = () => {
-    const url = `https://toolsite-f16i.onrender.com/user/${_id}`;
+    const url = `https://toolsite.up.railway.app/user/${_id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

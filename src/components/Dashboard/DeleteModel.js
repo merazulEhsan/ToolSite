@@ -5,7 +5,7 @@ const DeleteModel = ({ orderDelete, setOrderDelete, refetch }) => {
   const { product_name, orderQuantity, _id } = orderDelete;
 
   const handleDelete = () => {
-    const url = `https://toolsite-f16i.onrender.com/order/${_id}`;
+    const url = `https://toolsite.up.railway.app/order/${_id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

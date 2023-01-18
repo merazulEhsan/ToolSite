@@ -18,7 +18,7 @@ const Orders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`https://toolsite-f16i.onrender.com/order?email=${user.email}`).then(
+    fetch(`https://toolsite.up.railway.app/order?email=${user.email}`).then(
       (res) => res.json()
     )
   );
