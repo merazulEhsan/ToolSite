@@ -7,7 +7,7 @@ const UserRow = ({ user, index, refetch, setUserDelete }) => {
   const { email, photoURL } = user;
 
   const makeAdmin = () => {
-    fetch(`https://toolsite.up.railway.app/user/admin/${email}`, {
+    fetch(`https://toolsite-f16i.onrender.com/user/admin/${email}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
     })

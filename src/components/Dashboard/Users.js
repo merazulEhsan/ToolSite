@@ -12,7 +12,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch(`https://toolsite.up.railway.app/user`, {
+    fetch(`https://toolsite-f16i.onrender.com/user`, {
       method: "GET",
       headers: { "content-type": "application/json" },
     }).then((res) => res.json())

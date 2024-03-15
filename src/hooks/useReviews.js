@@ -4,7 +4,7 @@ const useReviews = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("https://toolsite.up.railway.app/review")
+    fetch("https://toolsite-f16i.onrender.com/review")
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, []);

@@ -13,7 +13,7 @@ const Reviews = () => {
       email: e.target.email.value,
       message: e.target.message.value,
     };
-    const url = `https://toolsite.up.railway.app/review`;
+    const url = `https://toolsite-f16i.onrender.com/review`;
     fetch(url, {
       method: "POST",
       headers: {
